@@ -6,68 +6,76 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 06:21:07 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/06/03 08:02:08 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/06/04 17:27:16 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	digitnumber(char const *s, char c)
+static int	wordnumber(char const *s, char c)
 {
-	int	dn;
 	int	a;
-	int	isword;
+	int	wd;
 
 	a = 0;
-	isword = 0;
-	dn = 0;
+	wd = 0;
 	while (s[a])
 	{
-		if (s[a] != c && !isword)
+		while (s[a] == c && s[a])
+			a++;
+		if (s[a] != c)
 		{
-			dn++;
-			isword = 1;
+			wd++;
+			while (s[a] != c && s[a])
+				a++;
 		}
-		else
-		{
-			if (s[a] == c)
-				isword = 0;
-		}
-		a++;
 	}
-	return (dn);
+	return (wd);
 }
 
-static int	*getwordslen(char const *s, char c)
+static char	*addarr(char *s, int start, int len)
 {
-	int	*arr;
 	int	a;
-	int	len;
-	int	b;
+	char	*nstr;
 
-	arr = (int *)malloc((digitnumber(s,c) + 1) * sizeof(int));
+	nstr = malloc(sizeof(char) * (len + 1));
 	a = 0;
-	b = 0;
-	while (b < digitnumber(s, c))
+	if (!nstr)
+		return (0);
+	while (a < len)
 	{
-		len = 0;
-		while (s[a] == c)
-			a++;
-		while (s[a] != c && s[a])
-		{
-			a++;
-			len++;
-		}
-		arr[b] = len;
-		b++;
+		nstr[a] = s[start];
+		a++;
+		start++;
 	}
-	return (arr);
+	nstr[a] = '\0';
+	return (nstr);
 }
 
 char	**ft_split(char const *s, char c)
 {
+	char	**arr;
+	int	a;
+	int	b;
+	int	start;
 
-	arr = (char **)malloc(digitnumber(s, c) * sizeof(char *));
-	printf("%d",getwordslen("Selam Furkan Naber?==", ' ')[3]);
+	arr = (char **)malloc((wordnumber(s, c) + 1) * sizeof(char *));
+	if (!arr)
+		return (0);
+	a = 0;
+	b = 0;
+	start = 0;
+	while (a < wordnumber(s, c))
+	{
+		while (s[b] == c && s[b])
+			b++;
+		start = b;
+		while (s[b] != c && s[b])
+			b++;
+		if (b > start)
+			arr[a] = addarr((char *)s, start, b - start);
+		a++;
+	}
+	arr[a] = NULL;
 	return (arr);
 }
