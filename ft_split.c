@@ -60,7 +60,7 @@ char	**ft_split(char const *s, char c)
 	int	start;
 
 	arr = (char **)malloc((wordnumber(s, c) + 1) * sizeof(char *));
-	if (!arr)
+	if (!arr || !s)
 		return (0);
 	a = 0;
 	b = 0;
