@@ -6,13 +6,13 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 06:21:07 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/06/04 17:27:16 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/06/11 00:49:10 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	wordnumber(char const *s, char c)
+static int	ft_wordnumber(char const *s, char c)
 {
 	int	a;
 	int	wd;
@@ -23,7 +23,7 @@ static int	wordnumber(char const *s, char c)
 	{
 		while (s[a] == c && s[a])
 			a++;
-		if (s[a] != c)
+		if (s[a] != c && s[a])
 		{
 			wd++;
 			while (s[a] != c && s[a])
@@ -33,7 +33,7 @@ static int	wordnumber(char const *s, char c)
 	return (wd);
 }
 
-static char	*addarr(char *s, int start, int len)
+static char	*ft_addarr(char *s, int start, int len)
 {
 	int	a;
 	char	*nstr;
@@ -52,29 +52,49 @@ static char	*addarr(char *s, int start, int len)
 	return (nstr);
 }
 
+static void	ft_free(char **arr)
+{
+	int	a;
+
+	a = 0;
+	while (arr[a++])
+		free(arr[a]);
+	free(arr);
+}
+
+static int	ft_wlenght(char const *s, char c)
+{
+	int	a;
+
+	a = ft_strchr(s, c) - s;
+	if (!ft_strchr(s, c))
+		return (ft_strlen(s));
+	return (a);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	int	a;
-	int	b;
-	int	start;
+	int	wc;
 
-	arr = (char **)malloc((wordnumber(s, c) + 1) * sizeof(char *));
-	if (!arr || !s)
-		return (0);
+	wc = ft_wordnumber(s, c);
+	arr = (char **)malloc((wc + 1) * sizeof(char *));
 	a = 0;
-	b = 0;
-	start = 0;
-	while (a < wordnumber(s, c))
+	if (!arr || !s)
+		return (NULL);
+	while (wc--)
 	{
-		while (s[b] == c && s[b])
-			b++;
-		start = b;
-		while (s[b] != c && s[b])
-			b++;
-		if (b > start)
-			arr[a] = addarr((char *)s, start, b - start);
-		a++;
+		while (*s == c && *s)
+			s++;
+		if (*s != c)
+		{
+			arr[a] = ft_addarr((char *)s, 0, ft_wlenght(s, c));
+			if (!arr[a++])
+				ft_free(arr);
+			while (*s != c && *s)
+				s++;
+		}
 	}
 	arr[a] = NULL;
 	return (arr);
