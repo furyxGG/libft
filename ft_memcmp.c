@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 15:32:18 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/05/31 16:48:16 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:38:47 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*s1chr;
 	unsigned char	*s2chr;
-	size_t	a;
+	size_t			a;
 
 	if (!s1 && !s2)
 		return (0);

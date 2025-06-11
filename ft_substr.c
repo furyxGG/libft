@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 01:21:01 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/06/03 04:57:13 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:37:58 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (0);
 	while (a < len)
 	{
-		subptr[a] = s[start];
-		a++;
-		start++;
+		subptr[a++] = s[start++];
 	}
 	subptr[a] = '\0';
 	return (subptr);

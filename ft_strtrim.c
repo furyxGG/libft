@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 05:08:13 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/06/03 06:20:52 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:34:07 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*newstr;
-	int	a;
-	int	b;
+	int		a;
+	int		b;
 
 	if (!s1)
 		return (0);

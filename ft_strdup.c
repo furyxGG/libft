@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 01:00:00 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/06/03 04:29:01 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:41:40 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strdup(const char *s)
 {
 	char	*nptr;
-	int	a;
+	int		a;
 
 	nptr = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!nptr)

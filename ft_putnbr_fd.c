@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 05:02:06 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/06/11 12:38:32 by fyagbasa         ###   ########.fr       */
+/*   Created: 2025/06/11 05:48:33 by fyagbasa          #+#    #+#             */
+/*   Updated: 2025/06/11 05:53:52 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*newstr;
-	int		a;
-	int		b;
-
-	newstr = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!newstr)
-		return (0);
-	a = 0;
-	b = 0;
-	while (s1[a])
+	if (n == -2147483648)
 	{
-		newstr[b] = s1[a];
-		a++;
-		b++;
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		ft_putnbr_fd(147483648, fd);
 	}
-	a = 0;
-	while (s2[a])
+	else if (n < 0)
 	{
-		newstr[b] = s2[a];
-		a++;
-		b++;
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
 	}
-	newstr[b] = '\0';
-	return (newstr);
+	else if (n > 9)
+	{
+		ft_putnbr_fd((n / 10), fd);
+		ft_putnbr_fd((n % 10), fd);
+	}
+	else
+	{
+		ft_putchar_fd((n + '0'), fd);
+	}
 }

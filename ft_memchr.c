@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 14:57:54 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/06/03 03:47:13 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:41:14 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*schr;
-	size_t	a;
+	size_t			a;
 
 	schr = (unsigned char *)s;
 	a = 0;

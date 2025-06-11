@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 16:49:54 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/05/31 18:44:16 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:38:13 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			}
 			l++;
 		}
-		if(!little[l])
+		if (!little[l])
 			return ((char *)&big[b]);
 		b++;
 	}
