@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 00:17:30 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/06/15 00:45:28 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/06/15 06:46:36 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char		*cdest;
-	char		*csrc;
+	unsigned char		*cdest;
+	unsigned char		*csrc;
 	size_t		a;
 
 	if (!dest && !src)
 		return (NULL);
-	cdest = (char *)dest;
-	csrc = (char *)src;
+	cdest = (unsigned char *)dest;
+	csrc = (unsigned char *)src;
 	a = 0;
 	if (cdest > csrc)
 	{
